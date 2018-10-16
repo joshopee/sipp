@@ -1,0 +1,44 @@
+buildscript {
+    ext {
+        springBootVersion = '2.0.5.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.shopee'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 10
+
+repositories {
+    mavenCentral()
+}
+
+task print(){
+    doLast{
+        println "github push complete"
+    }
+}
+
+
+dependencies {
+    compile 'org.springframework.boot:spring-boot-starter-data-jpa'
+    compile('org.springframework.boot:spring-boot-starter-data-rest')
+    compile('mysql:mysql-connector-java')
+    compile('org.glassfish.jaxb:jaxb-runtime:2.2.11')
+    compile 'joda-time:joda-time:2.9.4'
+    compile 'com.google.code.gson:gson:2.7'
+    compile 'com.sun.activation:javax.activation:1.2.0'
+
+    compile 'org.apache.httpcomponents:httpclient:4.3.4'
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+}
